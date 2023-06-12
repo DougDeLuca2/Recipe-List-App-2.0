@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Identifiable lets it work inside a Swift UI list so it can tell each ingredient apart and Decodable lets us easily decode that JSON data with the decodeable protocol
 class Recipe:Identifiable, Decodable {
     
     var id:UUID?
@@ -18,6 +19,19 @@ class Recipe:Identifiable, Decodable {
     var cookTime:String
     var totalTime:String
     var servings:Int
-    var ingredients:[String]
+    var highlights:[String]
+    var ingredients:[Ingredients]
     var directions:[String]
+}
+
+
+class Ingredients: Identifiable, Decodable {
+    
+    //Since we have Identifiable as a protocol we need a UUID property
+    var id:UUID?
+    var name:String
+    //This are optionals because they might or might not exist.
+    var num:Int?
+    var demon:Int?
+    var unit:String?
 }

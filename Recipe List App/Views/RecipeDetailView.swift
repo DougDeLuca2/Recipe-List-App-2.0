@@ -31,9 +31,9 @@ struct RecipeDetailView: View {
                         .font(.headline)
                         .fontWeight(.bold)
                     
-                    ForEach(recipe.ingredients, id:\.self) { item in
+                    ForEach(recipe.ingredients) { item in
                         Spacer()
-                        Text("• " + item)
+                        Text("• " + item.name)
                     }
                 }
                 
